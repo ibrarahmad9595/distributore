@@ -1,0 +1,181 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+  <title>02CBI - Programmazione ad Oggetti</title>
+</head>
+<body>
+<h1 style="text-align: center;">Distributore di bevande<br>
+</h1>
+Sviluppare un programma per la gestione di un distributore di bevande
+che risponda ai seguenti requisiti.<br>
+Si parte dal progetto Eclipse<br>
+<br>
+<hr style="width: 100%; height: 2px;">
+<h2>R1: Tipi di Bevande</h2>
+Il distributore di bevande
+&egrave; in grado di erogare alcuni tipi di
+bevande; ogni bevanda &egrave; caratterizzata da un codice, nome ed un
+prezzo.
+Ad esempio:<br>
+<br>
+<table cellpadding="2" cellspacing="2" border="1"
+ style="text-align: left;">
+  <tbody>
+    <tr>
+      <td style="vertical-align: top;"><span style="font-weight: bold;">Codice</span><br>
+      </td>
+      <td style="vertical-align: top; font-weight: bold;">Bevanda<br>
+      </td>
+      <td style="vertical-align: top; font-weight: bold;">Prezzo</td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;">A<br>
+      </td>
+      <td style="vertical-align: top;">Acqua<br>
+      </td>
+      <td style="vertical-align: top;">0.20<br>
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;">B<br>
+      </td>
+      <td style="vertical-align: top;">Coca<br>
+      </td>
+      <td style="vertical-align: top;">0.30<br>
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;">C<br>
+      </td>
+      <td style="vertical-align: top;">Birra<br>
+      </td>
+      <td style="vertical-align: top;">1.00<br>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<br>
+Il metodo <span style="font-weight: bold;">aggiungiBevanda()</span>
+permette di aggiungere la descrizione di una bevanda.<br>
+Il distributore permette di conoscere, dato il codice, il prezzo e il
+nome della bevanda tramite i metodi <span style="font-weight: bold;">getPrice()</span>
+e <span style="font-weight: bold;">getName()</span> rispettivamente.<br>
+Quando si richiede un codice corrispondente ad una bevanda non
+disponibile, viene generata un'eccezione di <span
+ style="font-weight: bold;">BevandaNonValida</span>.<br>
+<h2>R2: Credito</h2>
+Il distributore pu&ograve; essere utilizzato con delle tessere di
+credito. Ogni tessera &egrave; caratterizzata da un codice (un numero
+intero) e da un credito disponibile. I crediti vengono definiti tramite
+il metodo <span style="font-weight: bold;">caricaTessera()</span>. In
+qualsiasi istante &egrave; possibile sapere il credito residuo di una
+tessera tramite il metodo <span style="font-weight: bold;">leggiCredito()</span>
+che riceve come parametro il codice della tessera; in caso di codice di
+tessera non valido viene restituita un'eccezione di <span
+ style="font-weight: bold;">TesseraNonValida</span>.<br>
+Esempio di tessere:<br>
+<br>
+<table border="1" cellpadding="2" cellspacing="2">
+  <tbody>
+    <tr>
+      <td style="vertical-align: top; font-weight: bold;">Codice<br>
+      </td>
+      <td style="vertical-align: top; font-weight: bold;">Credito<br>
+      </td>
+    </tr>
+    <tr>
+      <td><code>12 </code></td>
+      <td>5.5</td>
+    </tr>
+    <tr>
+      <td>21 </td>
+      <td>10.0</td>
+    </tr>
+    <tr>
+      <td>99 </td>
+      <td>0.75</td>
+    </tr>
+  </tbody>
+</table>
+<br>
+<h2>R3: Approvigionamento Distributore.</h2>
+Il distributore &egrave;
+costituito da quattro colonne in cui
+sono disposte le lattine delle bevande. Ogni colonna contiene un unico
+tipo di bevanda ed &egrave;
+caratterizzata dal numero di lattine
+contenute e dal tipo di bevanda che contiene. In partenza tutte le
+colonne sono vuote.<br>
+Quando viene ricaricato il distributore viene assegnato ad ogni colonna
+un tipo di bevanda ed il numero di lattine presenti; a questo scopo si
+usa il metodo <span style="font-weight: bold;">aggiornaColonna()</span>
+che riceve come parametro il numero della colonna, il tipo di bevanda e
+il numero di lattine presenti nella colonna.<br>
+Le colonne sono numerate a partire da 1.<br>
+Esempio:<br>
+<br>
+<table border="1" cellpadding="2" cellspacing="2">
+  <tbody>
+    <tr>
+      <td style="vertical-align: top; font-weight: bold;">Numero<br>
+Colonna<br>
+      </td>
+      <td style="vertical-align: top; font-weight: bold;">Nome<br>
+Bibita<br>
+      </td>
+      <td style="vertical-align: top; font-weight: bold;">Lattine<br>
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;">1<br>
+      </td>
+      <td><code>Acqua </code></td>
+      <td>40</td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;">2<br>
+      </td>
+      <td>Coca </td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;">3<br>
+      </td>
+      <td>Birra </td>
+      <td>50</td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;">4<br>
+      </td>
+      <td>Acqua </td>
+      <td>50</td>
+    </tr>
+  </tbody>
+</table>
+<br>
+Dato un codice di una bibita (es. "A") &egrave; possibile sapere quante
+lattine sono disponibili tramite il metodo <span
+ style="font-weight: bold;">lattineDisponibili()</span>. Il metodo
+somma tutte le lattine disponibili in tutte le colonne che contengono
+il tipo di bevanda data.<br>
+<h2>R4: Erogazione</h2>
+Il distributore eroga le bevande specificando il codice della bevanda e
+il codice della tessera con cui pagare. Se i codici (di bevanda e di
+tessera) sono validi, il credito residuo della tessera &egrave; almeno
+pari al prezzo della bevanda ed esiste almeno una lattina disponibile
+per la bevanda selezionata, il distributore decrementa il credito
+residuo della tessera del prezzo della bevanda, e riduce il numero di
+lattine disponibili nella colonna che le contiene.<br>
+L'erogazione viene fatta tramite il metodo <span
+ style="font-weight: bold;">eroga()</span> che restituisce il numero
+della colonna da cui viene prelevata la lattina.<br>
+Se il credito residuo della tessera non
+&egrave; sufficiente il distributore segnala l'errore generando
+un'eccezione di <span style="font-weight: bold;">CreditoInsufficiente</span>.<br>
+Se non ci sono lattine disponibili in nessuna colonna il metodo genera
+un'eccezione di <span style="font-weight: bold;">BevandaEsaurita</span>.<span
+ style="font-weight: bold;"><br>
+</span>
+<hr style="width: 100%; height: 2px;"><br>
+</body>
+</html>
